@@ -16,11 +16,37 @@
     </div>
     <div id="layoutSidenav_content">
         <main>
-            <div class="container mt-5">
-                <form action="" method="post">
-                    <label for="nombre">Nombres: </label>
-                    <input type="text" name="nombre" id="nombre">
-                </form>
+            <div class="card m-3">
+                <div class="card-header">
+                    <h3 class="text-black  text-center">
+                        Formulario Clientes
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post"  th:action="@{/cliente/crear}">
+                        <label class="form-label" for="documento">Documento: </label>
+                        <input class="form-control" type="text" name="documento" id="documento">
+
+                        <label class="form-label" for="nombre">Nombres: </label>
+                        <input class="form-control" type="text" name="nombre" id="nombre">
+
+                        <label class="form-label" for="telefono">Telefono: </label>
+                        <input class="form-control" type="text" name="telefono" id="telefono">
+
+                        <label class="form-label" for="direccion">Direccion: </label>
+                        <input class="form-control" type="text" name="direccion" id="direccion">
+
+                        <label class="form-label" for="barrio">Barrio: </label>
+                        <input class="form-control" type="text" name="barrio" id="barrio">
+
+
+                        <label class="form-label" for="ciudad">Ciudad: </label>
+                        <input class="form-control" type="text" name="ciudad" id="ciudad">
+                        <button class="btn btn-primary mt-2" type="submit">Guardar</button>
+                    </form>
+
+                </div>
+
 
             </div>
 
@@ -38,6 +64,10 @@
 
 
 <div th:replace="plantilla.html::scripts">
+
+    <script>
+
+    </script>
 
 </div>
 
