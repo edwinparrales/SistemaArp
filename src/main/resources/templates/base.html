@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla.html::head('Formulario Cliente')">
+    <meta charset="UTF-8">
+    <title>Formulario Cliene</title>
+</head>
+<body class="sb-nav-fixed">
+<nav th:replace="plantilla.html::navbar"></nav>
+
+
+<div id="layoutSidenav">
+    <div th:replace="plantilla.html::#layoutSidenav_nav">
+
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container mt-5">
+                <form action="" method="post">
+                    <label for="nombre">Nombres: </label>
+                    <input type="text" name="nombre" id="nombre">
+                </form>
+
+            </div>
+
+        </main>
+
+        <footer th:replace="plantilla.html::footer">
+
+        </footer>
+
+    </div>
+
+</div>
+
+
+
+
+<div th:replace="plantilla.html::scripts">
+
+</div>
+
+</body>
+</html>

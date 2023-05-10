@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+  Listado cliente
+  <hr>
+
+  <a class="btn btn-warning" th:href="@{/cliente/crear}">Nuevo</a>
+
+   <ul>
+     <li th:each="cliente : ${clientes}" th:text="${cliente.nombre}">
+
+     </li>
+   </ul>
+</body>
+</html>
