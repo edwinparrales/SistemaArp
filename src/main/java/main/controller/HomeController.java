@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @GetMapping("/inicio")
     public String inicio(){
-        return "plantilla";
+        return "home";
     }
-    @GetMapping("/producto")
-    public String producto(){
-        return "producto/FrmCrearProducto";
-    }
+
 }

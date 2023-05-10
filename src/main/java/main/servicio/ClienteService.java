@@ -20,4 +20,12 @@ public class ClienteService {
        else
            return new ArrayList<Cliente>();
     }
+
+    public Cliente crear(Cliente cliente){
+        return cr.save(cliente);
+    }
+
+    public Cliente buscarId(Integer id){
+         return cr.findById(id).get();
+    }
 }
