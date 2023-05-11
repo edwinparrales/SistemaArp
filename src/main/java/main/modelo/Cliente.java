@@ -1,20 +1,29 @@
 package main.modelo;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "CLIENTES")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rowid_cliente", nullable = false)
+    @Column(name = "ID_CLIENTE", nullable = false)
     private Integer id;
+
+    @Column(name = "numero_documento", nullable = false,unique = true)
+    private String numeroDocumento;
+    @Column(name = "nombres", nullable = false)
+    @NotBlank (message = "El campo Nombre no puede ser vacio")
+    private String nombres;
+
+    @Column(name = "ciudad", nullable = false)
+    private String ciudad;
 
     @Column(name = "barrio", nullable = false)
     private String barrio;
 
-    @Column(name = "ciudad", nullable = false)
-    private String ciudad;
 
     @Column(name = "direccion", nullable = false)
     private String direccion;
@@ -22,32 +31,12 @@ public class Cliente {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "nombre", nullable = false)
-    private String nombre;
 
-    @Column(name = "numero_documento", nullable = false)
-    private String numeroDocumento;
+
 
     @Column(name = "telefono", nullable = false)
     private String telefono;
 
-    @Column(name = "codigo", nullable = false)
-    private Integer codigo;
-
-    @Column(name = "cedula", nullable = false)
-    private String cedula;
-
-    @Column(name = "nit", nullable = false)
-    private String nit;
-
-    @Column(name = "nombres", nullable = false)
-    private String nombres;
-
-    @Column(name = "razon_social", nullable = false)
-    private String razonSocial;
-
-    @Column(name = "telefono_movil", nullable = false)
-    private String telefonoMovil;
 
     public Integer getId() {
         return id;
@@ -57,12 +46,20 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getBarrio() {
-        return barrio;
+    public String getNumeroDocumento() {
+        return numeroDocumento;
     }
 
-    public void setBarrio(String barrio) {
-        this.barrio = barrio;
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getCiudad() {
@@ -71,6 +68,14 @@ public class Cliente {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
     }
 
     public String getDireccion() {
@@ -89,22 +94,6 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
-
     public String getTelefono() {
         return telefono;
     }
@@ -112,53 +101,4 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    public Integer getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public String getNit() {
-        return nit;
-    }
-
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getRazonSocial() {
-        return razonSocial;
-    }
-
-    public void setRazonSocial(String razonSocial) {
-        this.razonSocial = razonSocial;
-    }
-
-    public String getTelefonoMovil() {
-        return telefonoMovil;
-    }
-
-    public void setTelefonoMovil(String telefonoMovil) {
-        this.telefonoMovil = telefonoMovil;
-    }
-
 }

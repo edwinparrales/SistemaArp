@@ -23,25 +23,30 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form action="" method="post"  th:action="@{/cliente/crear}">
-                        <label class="form-label" for="documento">Documento: </label>
-                        <input class="form-control" type="text" name="documento" id="documento">
+                    <form action="" method="post"  th:action="@{/cliente/crear}" th:object="${cliente}">
+                        <label class="form-label" for="numeroDocumento">Documento: </label>
+                        <input class="form-control" type="text" name="numeroDocumento" id="numeroDocumento" th:field="*{numeroDocumento}">
 
-                        <label class="form-label" for="nombre">Nombres: </label>
-                        <input class="form-control" type="text" name="nombre" id="nombre">
+                        <label class="form-label" for="nombres">Nombres: </label>
+                        <input class="form-control" type="text" name="nombres" id="nombres"  th:field="*{nombres}">
+                        <span th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></span>
 
                         <label class="form-label" for="telefono">Telefono: </label>
-                        <input class="form-control" type="text" name="telefono" id="telefono">
+                        <input class="form-control" type="text" name="telefono" id="telefono" th:field="*{telefono}">
+
+                        <label class="form-label" for="email">Email: </label>
+                        <input class="form-control" type="email" name="email" id="email" th:field="*{email}">
+
 
                         <label class="form-label" for="direccion">Direccion: </label>
-                        <input class="form-control" type="text" name="direccion" id="direccion">
+                        <input class="form-control" type="text" name="direccion" id="direccion" th:field="*{direccion}">
 
                         <label class="form-label" for="barrio">Barrio: </label>
-                        <input class="form-control" type="text" name="barrio" id="barrio">
+                        <input class="form-control" type="text" name="barrio" id="barrio" th:field="*{barrio}">
 
 
                         <label class="form-label" for="ciudad">Ciudad: </label>
-                        <input class="form-control" type="text" name="ciudad" id="ciudad">
+                        <input class="form-control" type="text" name="ciudad" id="ciudad" th:field="*{ciudad}" >
                         <button class="btn btn-primary mt-2" type="submit">Guardar</button>
                     </form>
 

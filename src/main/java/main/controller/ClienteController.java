@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,7 +34,9 @@ public class ClienteController {
     }
 
     @GetMapping("/crear")
-    public String registrarCliente(Model model){
+    public String registrarCliente(Cliente cliente){
+
+
         return "cliente/FrmCrearCliente";
     }
 
@@ -40,6 +45,37 @@ public class ClienteController {
     public ResponseEntity<List<Cliente>> listaJson(){
         List<Cliente> clientes = cs.listar();
         return new ResponseEntity<>(clientes, HttpStatus.OK);
+    }
+
+    @PostMapping("/crear")
+
+    public String guardar(@Validated @ModelAttribute Cliente cliente, Model model, BindingResult result){
+
+        try {
+            Cliente clienteNuevo = cs.crear(cliente);
+            model.addAttribute("clienteCreado",clienteNuevo);
+            return "redirect:/cliente/listar";
+
+
+        }catch (Exception e){
+            if(result.hasErrors()){
+                System.out.print("Error en el formulario");
+                return "cliente/error404";
+
+            }
+
+        }
+
+
+
+
+        Cliente clienteNuevo = cs.crear(cliente);
+        model.addAttribute("clienteCreado",clienteNuevo);
+        return "redirect:/cliente/listar";
+
+
+
+
     }
 
 
